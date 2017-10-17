@@ -3,12 +3,14 @@ class SessionController < ApplicationController
 		render "index", layout: false
 	end
 	def create
-		user = User.find_by(session_params)
+		user = User.find_by_email(session_params[:email])
 		if user.nil?
 			render :new
 		else
-			session[:current_user] = user
-			redirect_to messages_path
+			if user.password == params[:pass]
+				session[:current_user] = user
+				redirect_to messages_path
+			end
 		end
 	end
 	def destroy
