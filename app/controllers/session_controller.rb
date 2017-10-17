@@ -1,6 +1,6 @@
 class SessionController < ApplicationController
 	def new
-		render "register/index", layout: false
+		render "index", layout: false
 	end
 	def create
 		user = User.find_by(session_params)
