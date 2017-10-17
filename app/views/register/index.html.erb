@@ -22,16 +22,19 @@
   </div>
   <div class="form">
     <h2>Login to your account</h2>
-    <form action="/logIn" id="logInForm">
-      <input type="email" placeholder="Email" name="email" id="email"/>
-      <input type="password" placeholder="Password" name="pass" id="pass"/>
-      <button type="button" id="log-in">Sign in</button>
-
-    </form>
+    <%= form_with scope: :session, url: login_path, local: true do |form| %>
+      <div class="form-group">
+        <%= form.text_field :email, placeholder: "Email Address" %>
+      </div>
+      <div class="form-group">
+        <%= form.password_field :pass, placeholder: "Password" %>
+      </div>
+      <button type="submit" id="log-in">Register</button>
+    <% end %>    
   </div>
   <div class="form">
     <h2>Create an account</h2>
-    <%= form_with model: @user do |form| %>
+    <%= form_with scope: :user, local: true do |form| %>
       
       <div class="form-group">
         <%= form.text_field :name, placeholder: "Username" %>
@@ -40,7 +43,7 @@
         <%= form.text_field :email, placeholder: "Email Address" %>
       </div>
       <div class="form-group">
-        <%= form.password_field :password, placeholder: "Password" %>
+        <%= form.password_field :pass, placeholder: "Password" %>
       </div>
       <div class="form-group">
         <%= form.password_field :nil, placeholder: "Retype Password" %>
