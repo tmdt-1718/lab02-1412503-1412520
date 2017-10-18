@@ -9,7 +9,7 @@ class SessionController < ApplicationController
 		else
 			if user.password == params[:pass]
 				login(user)
-				redirect_to messages_path
+				redirect_to inbox_index_path
 			end
 		end
 	end
