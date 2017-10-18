@@ -1,7 +1,6 @@
 class InboxController < ApplicationController
 	before_action :authenticate
 	def index
-		@messages = Inbox.find_by_recipient_id(current_user[:id])
-		byebug
+		@messages = Inbox.where(recipient_id: current_user[:id]).all
 	end
 end
