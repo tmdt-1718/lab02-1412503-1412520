@@ -8,13 +8,13 @@ class SessionController < ApplicationController
 			render :new
 		else
 			if user.password == params[:pass]
-				session[:current_user] = user
+				login(user)
 				redirect_to messages_path
 			end
 		end
 	end
 	def destroy
-		session.delete(:current_user)
+		logout
 		redirect_to login_path
 	end
 	private

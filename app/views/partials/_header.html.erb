@@ -23,7 +23,7 @@
 											<div class="profile_img">	
 												<span class="prfil-img"><img src="" alt=""> </span> 
 												<div class="user-name">
-													<p><%= session[:current_user]['name'] %></p>
+													<p><%= current_user['name'] %></p>
 												</div>
 												<%= link_to logout_path, method: :delete do %>
 													<i class="fa fa-sign-out lnr" id="log-out"></i>
