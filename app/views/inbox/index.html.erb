@@ -11,9 +11,7 @@
 	                       <div class="clearfix"> </div>
 	                 </div>
 	               </div>
-		</div>
-
-	    <table class=" table tab-border hover" id="inboxTable" cellspacing="0" width="100%">
+	      <table class=" table tab-border hover" id="inboxTable" cellspacing="0" width="100%">
 	    	<thead>
 	    		<tr>
 	                <th>Sender</th>
@@ -24,7 +22,7 @@
 	        <tbody>
 	        <% @messages.each do |message| %>
 	        	<% if message.isRead == true %>
-	        		 <tr class="table-row">
+		        	<%= content_tag :tr, class: "table-row", data: {toggle: "modal", target: "#myModal", backdrop: "false", id: message.id} do %>
 		                <td>
 		                	<%= message.message.sender.email %>
 		                </td>
@@ -33,10 +31,10 @@
 		                </td>
 		                <td>
 		                    <%= message.message.senttime %>
-		                </td>
-		            </tr>
+		                </td>		        	
+					<% end %>
 	        	<% else %>
-				 <tr class="table-row highlight">
+		        	<%= content_tag :tr, class: "table-row highlight", data: {toggle: "modal", target: "#myModal", backdrop: "false", id: message.id} do %>
 		                <td>
 		                	<%= message.message.sender.email %>
 		                </td>
@@ -45,33 +43,56 @@
 		                </td>
 		                <td>
 		                    <%= message.message.senttime %>
-		                </td>
-	            </tr>
+		                </td>		        	
+					<% end %>
 	            <% end %>
 	        <% end %>
 	        </tbody>
 	    </table>
+		</div>
+
 
 
 
 
 	</div>
 
-	<div id="myModal" class="modal">
-    <!-- Modal content -->
-		<div class="modal-content">
-		   <div class="modal-header">
-		        <span class="close">&times;</span>
-		        <h4 id ='recipent' ></h2>
-		      </div>
-		      <div class="modal-body">
-		        <p id = 'content'></p>
-		      </div>
-		      <div class="modal-footer">
-		        <h4 id = 'senttime'></h3>
-		      </div>
-		      <div class="modal-footer">
-		        <h4 id = 'readtime'></h3>
-		      </div>
-		 </div>
+	<div id="myModal" class="modal hide fade" aria-hidden="true" tabindex="-1" >
+    	<div class = "modal-dialog">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h4 class="modal-title">Modal Header</h4>
+	        </div>
+	        <div class="modal-body">
+	        	<div class="container-fluid">
+	        	<div class = "row">
+	        		<div class="col-md-2">
+	        			<b>From: </b>
+	        		</div>
+	        		<div class="col-md-8" id="mSender">
+	        			
+	        		</div>
+	        	</div>
+	          	<div class = "row">
+	        		<div class="col-md-2">
+	        			<b>Content: </b>
+	        		</div>
+	        		<div class="col-md-8" id="mBody">
+	        			
+	        		</div>
+	        	</div>
+	        	</div>
+	        	
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        </div>
+	      </div>
+		</div>
   	</div>
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag 'inbox' %>
+<% end %>
+ 
+

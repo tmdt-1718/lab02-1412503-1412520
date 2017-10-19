@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
 	scope '/messages' do
 	  resources :inbox, :sent, only: [:index]
+	  post 'inbox/read', to: 'inbox#read'
 	end
   # resources :messages, only: [:index]
   resources :user, only: [:new, :create]
