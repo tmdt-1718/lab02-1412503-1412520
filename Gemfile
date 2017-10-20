@@ -58,3 +58,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'font-awesome-sass', '~> 4.7.0'
 
 gem 'bcrypt', '~> 3.1.11'
+
+gem "autoprefixer-rails", '~> 7.1.5'
