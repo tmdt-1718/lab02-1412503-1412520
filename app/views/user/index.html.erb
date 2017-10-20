@@ -1,0 +1,38 @@
+<div class="mailbox-content table-responsive col-12">
+                    <div class="clearfix">
+                    </div>
+                     <table class="table inventory_related" id="usersTab">
+                        <thead>
+                            <th>Sender</th>
+                            <th>Content</th>
+                            <th>Time</th>
+                        </thead>
+                        <tbody>
+                            {{#each users}}
+                                <tr class="table-row">
+                                    <td class="table-img">
+                                       <img src="{{this.avatar}}" alt="" />
+                                    </td>
+                                    <td class="table-text">
+                                        <h6>{{this.name}}</h6>
+                                        <p>{{this.email}}</p>
+                                    </td>
+                                    {{#if this.user2}}
+                                    <td>
+                                        <form action="/unfriend">
+                                           <button type="button" class="btn btn-danger" onclick = "unFriend({{this.user2}})">Unfriend</button>
+                                        </form>
+                                    </td>
+                                    {{else}}
+                                    <td>
+                                        <form action="/addfriend">
+                                            <button type="button" class="btn btn-info" onclick = "addFriend({{this.userid}})">Add friend</button>
+                                        </form>
+                                    </td>
+                                    {{/if}}
+
+                                </tr>
+                             {{/each}}  
+                         </tbody>
+                     </table>
+                </div>

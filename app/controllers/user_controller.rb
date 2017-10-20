@@ -1,6 +1,10 @@
 class UserController < ApplicationController
-	def new
-		render "session/index", layout: false
+	# def new
+	# 	render "session/index", layout: false
+	# end
+	before_action :authenticate, only: :index
+	def index
+		
 	end
 
 	def create

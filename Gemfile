@@ -61,3 +61,6 @@ gem 'font-awesome-sass', '~> 4.7.0'
 gem 'bcrypt', '~> 3.1.11'
 
 gem "autoprefixer-rails", '~> 7.1.5'
+
+# gem 'rails-sweetalert2-confirm'
+# gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
