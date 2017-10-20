@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   post 'new_mes', to: 'new_mes#create', as: nil
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :messages, only: [:index]
+
+	scope '/messages' do
+	  resources :inbox, :sent, only: [:index]
+	  post 'inbox/read', to: 'inbox#read'
+	end
+  # resources :messages, only: [:index]
   resources :user, only: [:new, :create]
 
   resources :new_mes, only: [:index, :create]

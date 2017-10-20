@@ -5081,3 +5081,6 @@ td.table-text p {
     padding: 2px 10px;
 }
 
+.nav li {
+  width: 100%;
+}
