@@ -1,0 +1,33 @@
+<link href="flexdatalist/jquery.flexdatalist.min.css" rel="stylesheet" type="text/css">
+
+<script src="flexdatalist/jquery.flexdatalist.min.js"></script>
+
+<div class="row">
+	<%= render partial: "partials/user" %>
+	<div class="col-md-8 col-12 compose-right"> 
+		<div class="inbox-details-default">
+			<div class="inbox-details-heading">
+				Compose New Message
+			</div>
+			<div class="inbox-details-body" >
+				<div class="alert alert-info">
+				<%= @mes %>
+				</div>	
+				<%= form_with scope: :newmes, local: true do |form| %>
+					<p style="color: gray">	To: <span style="color: red">*</span></p>
+					<%= form.text_field :recipient, placeholder: "To ", list: 'rec', multiple: "multiple", class: 'flexdatalist', :required => true %>
+						<datalist id="rec">
+							<% @users.each do |user| %>
+			          			<option value= "<%= user.id%>"><%= user.email%></option>
+			        		<% end %>
+						</datalist>
+					<br>
+				    <div class = "com-mail">
+				        <%= form.text_area :content, placeholder: "Your message *", rows: 10, :required => true %>
+				    </div>
+				    <%= submit_tag("Send Message") %> 
+				<% end %>			
+			</div>
+		</div>
+	</div>
+</div>

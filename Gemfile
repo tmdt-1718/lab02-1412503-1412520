@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap', '~> 4.0.0.beta'
 gem 'jquery-rails'
+gem 'rails-bootstrap-select'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -58,3 +59,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'font-awesome-sass', '~> 4.7.0'
 
 gem 'bcrypt', '~> 3.1.11'
+
+
+
