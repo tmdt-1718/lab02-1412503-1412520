@@ -19,11 +19,11 @@
                                     </td>
                                     <% if user.isFriend %>
                                         <td>
-                                            <%= link_to 'Unfriend', friend_path(user.id), class: "btn btn-danger", data: { confirm: 'Are you sure you want to unfriend this person?', method: 'delete' } %>
+                                            <%= link_to 'Unfriend', friend_path(user.id), class: "btn btn-danger userUnfriend", data: { confirm: 'Are you sure you want to unfriend this person?', method: 'delete', id: user.id }, remote: true %>
                                         </td>
                                     <% else %>
                                         <td>
-                                            <%= link_to 'Add friend', friend_index_path(user.id, friend_id: user.id), class: "btn btn-info", data: {method: 'post'} %>
+                                            <%= link_to 'Add friend', friend_index_path(user.id, friend_id: user.id), class: "btn btn-info userAddFriend", data: {method: 'post', id: user.id }, remote: true %>
                                         </td>
                                     <% end %>
 
