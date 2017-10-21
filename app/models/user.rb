@@ -1,5 +1,8 @@
 class User < ApplicationRecord
+	attr_accessor :isFriend
 	has_secure_password
+
+	has_many :friends, foreign_key: "user_id", class_name: "Friend"
 	# def pass
 	# 	@pass = BCrypt::Password.new(self.password_hash)
 	# end

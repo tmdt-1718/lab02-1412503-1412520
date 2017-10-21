@@ -4,7 +4,14 @@ class UserController < ApplicationController
 	# end
 	before_action :authenticate, only: :index
 	def index
-		
+		@users = User.where.not(id: current_user[:id])
+		@users.each do |user|
+			if user.friends.find{|x| x.friend_id == current_user[:id]} != nil
+				user.isFriend = true
+			else
+				user.isFriend = false
+			end
+		end
 	end
 
 	def create
