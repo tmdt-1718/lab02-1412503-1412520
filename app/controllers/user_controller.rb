@@ -15,10 +15,17 @@ class UserController < ApplicationController
 	end
 
 	def create
-		if User.create(register_params)
-			flash[:success] = 'User created successfully'
-		else
-			flash[:fail] = 'There must be something wrong'
+		begin
+			if !User.find_by_email(register_params[:email]).nil?
+				render json: { data: '0' }
+			else
+				User.create(register_params)
+				render json: { data: '1' }
+			end
+			redirect_to 'sesssion/index'
+		rescue => ex
+			flash[:fail] = ex.message
+			# flash[:fail] = 'There must be something wrong'
 		end
 	end
 

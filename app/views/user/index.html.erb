@@ -18,13 +18,13 @@
                                         <p><%= user.email %></p>
                                     </td>
                                     <% if user.isFriend %>
-                                    <td>
-                                        <%= link_to 'Unfriend', friend_path(user.id), class: "btn btn-danger", data: { confirm: 'Are you sure you want to unfriend this person?', method: 'delete' } %>
-                                    </td>
+                                        <td>
+                                            <%= link_to 'Unfriend', friend_path(user.id), class: "btn btn-danger", data: { confirm: 'Are you sure you want to unfriend this person?', method: 'delete' } %>
+                                        </td>
                                     <% else %>
-                                    <td>
-                                        <%= link_to 'Add friend', friend_index_path(user.id, friend_id: user.id), class: "btn btn-info", data: {method: 'post'} %>
-                                    </td>
+                                        <td>
+                                            <%= link_to 'Add friend', friend_index_path(user.id, friend_id: user.id), class: "btn btn-info", data: {method: 'post'} %>
+                                        </td>
                                     <% end %>
 
                                 </tr>
