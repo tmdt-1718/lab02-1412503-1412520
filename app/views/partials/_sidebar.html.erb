@@ -12,7 +12,12 @@
                   <li class="{{active_sent}}" id="menu-academico-boletim" ><a href="sent {{userID}}">Sent</a></li>
                </ul>
 		        </li>
-		         <li class="{{active_users}}"><a href="users"><i class="fa fa-users"></i><span>Users</span></a></li>
+		         <li class="{{active_users}}">
+		         	<%= link_to user_index_path do %>
+			         	<i class="fa fa-users"></i>
+			         	<span>Users</span>
+		         	<% end %>
+		         </li>
 		         <li class="{{active_about}}"><a href="about"><i class="fa fa-info-circle"></i><span>About</span></a>
 		         </li>
 		      </ul>

@@ -1,4 +1,5 @@
 class NewMesController < ApplicationController
+	before_action :authenticate
 	def index		
 		temp = current_user.id
 		@users = User.select(User.arel_table[:email]).joins(
