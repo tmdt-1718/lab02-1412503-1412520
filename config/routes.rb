@@ -13,5 +13,7 @@ Rails.application.routes.draw do
     resources :new_mes, only: [:index, :create]
 	end
 
-  resources :user, only: [:new, :create]
+  resources :friend, only: [:index, :create, :destroy]
+
+  resources :user, only: [:create, :index]
 end

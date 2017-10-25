@@ -21,32 +21,34 @@
     <div class="tooltip">Don't have an account?</div>
   </div>
   <div class="form">
+    <%= render partial: "partials/alert" %>
     <h2>Login to your account</h2>
     <%= form_with scope: :session, url: login_path, local: true do |form| %>
       <div class="form-group">
-        <%= form.text_field :email, placeholder: "Email Address" %>
+        <%= form.email_field :email, placeholder: "Email Address" %>
       </div>
       <div class="form-group">
         <%= form.password_field :pass, placeholder: "Password" %>
       </div>
-      <button type="submit" id="log-in">Register</button>
+      <button type="submit" id="log-in">Log In</button>
     <% end %>    
   </div>
   <div class="form">
+    <%= render partial: "partials/alert" %>
     <h2>Create an account</h2>
-    <%= form_with scope: :user, url: user_index_path, local: true do |form| %>
+    <%= form_with scope: :user, url: user_index_path, local: true,  id: "registerForm" do |form| %>
       
       <div class="form-group">
-        <%= form.text_field :name, placeholder: "Username" %>
+        <%= form.text_field :name, placeholder: "Username", required: true %>
       </div>
       <div class="form-group">
-        <%= form.text_field :email, placeholder: "Email Address" %>
+        <%= form.email_field :email, placeholder: "Email Address", required: true %>
       </div>
       <div class="form-group">
-        <%= form.password_field :password, placeholder: "Password" %>
+        <%= form.password_field :password, placeholder: "Password", id: "pass", required: true %>
       </div>
       <div class="form-group">
-        <%= form.password_field :nil, placeholder: "Retype Password" %>
+        <%= form.password_field :nil, placeholder: "Retype Password", id: "rePass", required: true %>
       </div> 
       <button type="submit" id="sign-up">Register</button>
     <% end %>
