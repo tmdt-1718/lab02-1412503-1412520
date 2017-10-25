@@ -14,7 +14,6 @@
 //= require jquery_ujs 
 //= require popper
 //= require bootstrap-sprockets
-//= require rails-ujs
 //= require turbolinks
 //= require bootstrap-select
 //= require bootstrap/alert
