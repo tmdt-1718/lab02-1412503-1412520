@@ -14,6 +14,7 @@ class NewMesController < ApplicationController
 				  ).join_sources
 				)
 		@mes = "Please fill details to send a new message"
+		@active_newmes = "color: red"
 	end
 
 	def create

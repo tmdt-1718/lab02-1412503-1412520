@@ -1,0 +1,92 @@
+ 
+<div class="tab-pane active text-style table-responsive " id="tab1">
+	 	<div class="mailbox-border">	               
+	      <table class=" table tab-border hover" style="table-layout: fixed;" id="inboxTable" cellspacing="0" width="100%">
+	    	<thead>
+	    		<tr>
+	                <th >Recipient</th>
+	              	<th >Content</th>
+	              	<th >Sent time</th>
+            	</tr>
+	    	</thead>
+	        <tbody>
+	        <% @messages.each do |message| %>
+	        	<% if message.count_mes == 1 %>
+		        	<%= content_tag :tr, class: "table-row", data: {toggle: "modal", target: "#myModal", backdrop: "false", id: message.id} do %>
+		                <td class="td_format">		                	
+		                	<%= message.email %>
+		                </td>
+		                <td class="td_format">
+		                    <%= message.content %>
+		                </td>
+		                <td class="td_format">
+		                    <%= message.senttime %>
+		                </td>	
+		                <td style="display:none;">
+		                    <%= message.id %>
+		                </td>	                		                   	
+					<% end %>
+			    <% else %>
+			    	<%= content_tag :tr, class: "table-row", data: {toggle: "modal", target: "#myModal", backdrop: "false", id: message.id} do %>
+		                <td class="td_format">		                	
+		                	<%= message.email %> <span style="font-size: 14px; color: gray">and <%= message.count_mes - 1 %> more</span>
+		                </td>
+		                <td class="td_format">
+		                    <%= message.content %>
+		                </td>
+		                <td class="td_format">
+		                    <%= message.senttime %>
+		                </td>	
+		                <td style="display:none;">
+		                    <%= message.id %>
+		                </td>
+		        	<% end %>	
+		        <% end %>
+	        <% end %>
+	        </tbody>
+	    </table>
+		</div>
+	</div>
+
+	<div id="myModal" class="modal hide fade" aria-hidden="true"  >
+    	<div class = "modal-dialog modal-lg" " >
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal"></button>
+	          	<div id="mSenttime">
+	        			
+	        	</div>
+	        </div>
+	        <div class="modal-body">
+	        	<div class="container-fluid">
+		        	<div class = "row">
+		        		<div class="col-md-2" >
+		        			<p><b>Content:</b></p>
+		        		</div>
+		        		<div class="col-md-8" id="mBody">
+		        			
+		        		</div>
+		        	</div>
+		          	<div class = "row">
+		        		<div class="col-md-2">
+		        			<b>To: </b>
+		        		</div>
+		        		<div class="col-md-8" id="mRecipient">
+		        			
+		        		</div>
+		        	</div>
+	        	</div>
+	        	
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        </div>
+	      </div>
+		</div>
+  	</div>
+
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag 'sent_mes' %>
+<% end %>
+ 
+
