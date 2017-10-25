@@ -1,6 +1,8 @@
 class FriendController < ApplicationController
 	before_action :authenticate
+
 	def index
+		@active_friend = "active"
 		@friends = Friend.where(user_id: current_user[:id]).all
 	end
 

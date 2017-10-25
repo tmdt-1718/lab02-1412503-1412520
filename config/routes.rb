@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get '/', to: 'home#index'
+
+  get '/about', to: 'home#about'
+
   get 'session/login', to: 'session#new', as: :login
   post 'session/login', to: 'session#create', as: nil
   delete 'session/logout', to: 'session#destroy', as: :logout
