@@ -18,7 +18,7 @@
                                         <p><%= friend.friend.email %></p>
                                     </td>
                                     <td>
-                                        <%= link_to 'Unfriend', friend_path(friend.friend.id), class: "btn btn-danger", data: { confirm: 'Are you sure you want to unfriend this person?', method: 'delete' } %>
+                                        <%= link_to 'Unfriend', friend_path(friend.friend.id), class: "btn btn-danger unfriend", data: { confirm: 'Are you sure you want to unfriend this person?', method: 'delete', remote: true } %>
                                     </td>
                                 </tr>
                             <% end %>
