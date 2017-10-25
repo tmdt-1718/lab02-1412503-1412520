@@ -1,0 +1,27 @@
+                <div class="mailbox-content table-responsive">
+        			<div class="clearfix">
+        			</div>
+                     <table class="table  inventory_related" id="tab">
+                        <thead>
+                            <th>avatar</th>
+                            <th>name</th>
+                            <th>status</th>
+                        </thead>
+                        <tbody>
+                            <% @friends.each do |friend| %>
+                                <tr class="table-row">
+                                    <td class="table-img">
+                                       <img src="../images/User.png" alt="" />
+                                    </td>
+                                    <td class="table-text">
+                                    	<h6><%= friend.friend.name %></h6>
+                                        <p><%= friend.friend.email %></p>
+                                    </td>
+                                    <td>
+                                        <%= link_to 'Unfriend', friend_path(friend.friend.id), class: "btn btn-danger unfriend", data: { confirm: 'Are you sure you want to unfriend this person?', method: 'delete', remote: true } %>
+                                    </td>
+                                </tr>
+                            <% end %>
+                         </tbody>
+                     </table>
+                </div>

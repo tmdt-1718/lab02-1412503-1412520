@@ -42,6 +42,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'rails_12factor'
 end
 
 group :development do
@@ -61,3 +62,8 @@ gem 'font-awesome-sass', '~> 4.7.0'
 gem 'bcrypt', '~> 3.1.11'
 
 gem "autoprefixer-rails", '~> 7.1.5'
+
+# gem 'rails-sweetalert2-confirm'
+# gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
+
+ruby "2.4.2"

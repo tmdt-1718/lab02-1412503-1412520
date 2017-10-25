@@ -1,4 +1,5 @@
 class NewMesController < ApplicationController
+	before_action :authenticate
 	def index		
 		temp = current_user.id
 		@users = User.select(User.arel_table[:email]).joins(
@@ -13,6 +14,7 @@ class NewMesController < ApplicationController
 				  ).join_sources
 				)
 		@mes = "Please fill details to send a new message"
+		@active_newmes = "color: red"
 	end
 
 	def create
