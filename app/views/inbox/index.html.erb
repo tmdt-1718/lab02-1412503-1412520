@@ -21,7 +21,6 @@
 	    	</thead>
 	        <tbody>
 	        <% @messages.each do |message| %>
-	        	<% if message.isOfFriend %>
 		        	<% if message.isRead == true %>
 			        	<%= content_tag :tr, class: "table-row", data: {toggle: "modal", target: "#myModal", backdrop: "false", id: message.id} do %>
 			                <td>
@@ -47,7 +46,7 @@
 			                </td>		        	
 						<% end %>
 		            <% end %>
-	        	<% end %>
+
 
 	        <% end %>
 	        </tbody>
