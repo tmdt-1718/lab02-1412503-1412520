@@ -21,31 +21,34 @@
 	    	</thead>
 	        <tbody>
 	        <% @messages.each do |message| %>
-	        	<% if message.isRead == true %>
-		        	<%= content_tag :tr, class: "table-row", data: {toggle: "modal", target: "#myModal", backdrop: "false", id: message.id} do %>
-		                <td>
-		                	<%= message.message.sender.email %>
-		                </td>
-		                <td>
-		                    <%= message.message.content %>
-		                </td>
-		                <td>
-		                    <%= message.message.senttime %>
-		                </td>		        	
-					<% end %>
-	        	<% else %>
-		        	<%= content_tag :tr, class: "table-row highlight", data: {toggle: "modal", target: "#myModal", backdrop: "false", id: message.id} do %>
-		                <td>
-		                	<%= message.message.sender.email %>
-		                </td>
-		                <td>
-		                    <%= message.message.content %>
-		                </td>
-		                <td>
-		                    <%= message.message.senttime %>
-		                </td>		        	
-					<% end %>
-	            <% end %>
+	        	<% if message.isOfFriend %>
+		        	<% if message.isRead == true %>
+			        	<%= content_tag :tr, class: "table-row", data: {toggle: "modal", target: "#myModal", backdrop: "false", id: message.id} do %>
+			                <td>
+			                	<%= message.message.sender.email %>
+			                </td>
+			                <td>
+			                    <%= message.message.content %>
+			                </td>
+			                <td>
+			                    <%= message.message.senttime %>
+			                </td>		        	
+						<% end %>
+		        	<% else %>
+			        	<%= content_tag :tr, class: "table-row highlight", data: {toggle: "modal", target: "#myModal", backdrop: "false", id: message.id} do %>
+			                <td>
+			                	<%= message.message.sender.email %>
+			                </td>
+			                <td>
+			                    <%= message.message.content %>
+			                </td>
+			                <td>
+			                    <%= message.message.senttime %>
+			                </td>		        	
+						<% end %>
+		            <% end %>
+	        	<% end %>
+
 	        <% end %>
 	        </tbody>
 	    </table>
